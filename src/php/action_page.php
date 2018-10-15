@@ -1,4 +1,5 @@
 <?php
+    $uname = $_GET["uname"];
     $servername = "127.0.0.1";
     $username = "caleb";
     $password = "37683768";
@@ -11,7 +12,7 @@
         die("Connection failed: " . $conn->connect_error);
     } 
 
-    $sql = "SELECT password FROM info WHERE username='caleb'";
+    $sql = "SELECT password FROM info WHERE username='{$uname}'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
