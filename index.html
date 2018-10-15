@@ -6,6 +6,8 @@
     <script src="js/maincontroller.js" type="text/javascript"></script> 
 </head>
 <body>
-    <div id='content' ng-app='TestApp' ng-controller='MainController'>{{test}}</div>
+    <div id='content' ng-app='TestApp' ng-controller='MainController'>
+        <input type='text' ng-model='inputValue'>{{inputValue}}
+    </div>
 </body>
 </html>
