@@ -1,5 +1,6 @@
 <?php
     $uname = $_GET["uname"];
+    $pwd = $_GET["psw"];
     $servername = "127.0.0.1";
     $username = "caleb";
     $password = "37683768";
@@ -18,10 +19,15 @@
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-            echo "password: " . $row["password"];
+            $get_psw = $row["password"];
         }
     } else {
-        echo "0 results";
+        echo "Invalid username";
+    }
+    if ($pwd == $get_psw){
+        echo "Login sucessful";
+    } else {
+        echo "Invalid password";
     }
     $conn->close();
 ?>
