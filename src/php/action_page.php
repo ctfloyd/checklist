@@ -3,7 +3,7 @@
     $pwd = $_GET["psw"];
     $servername = "127.0.0.1";
     $username = "caleb";
-    $password = "37683768";
+    $password = "PASSWORDÍ";
     $dbname = "login";
 
     // Create connection
