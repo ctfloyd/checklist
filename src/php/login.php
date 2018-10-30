@@ -1,9 +1,13 @@
 <?php
+    session_start();
     $uname = $_GET["uname"];
     $pwd = $_GET["psw"];
+    if(empty($_GET)){
+        echo "ERROR";
+    }
     $servername = "127.0.0.1";
     $username = "caleb";
-    $password = "PASSWORDÍ";
+    $password = "37683768";
     $dbname = "login";
 
     // Create connection
@@ -13,21 +17,21 @@
         die("Connection failed: " . $conn->connect_error);
     } 
 
-    $sql = "SELECT password FROM info WHERE username='{$uname}'";
+    $sql = "SELECT * FROM info WHERE username='{$uname}'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
             $get_psw = $row["password"];
+            $get_id = $row["UID"];
         }
-    } else {
-        echo "Invalid username";
     }
     if ($pwd == $get_psw){
-        echo "Login sucessful";
+        $_SESSION["id"] = $get_id;
+        http_get("./retrieveItems.php");
     } else {
-        echo "Invalid password";
+        echo "ERROR";
     }
     $conn->close();
 ?>

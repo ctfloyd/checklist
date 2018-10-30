@@ -1,2 +1,0 @@
-USE login;
-SELECT * FROM INFO;
